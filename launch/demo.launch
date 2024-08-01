@@ -1,0 +1,30 @@
+
+
+<launch>
+  <node pkg="pointcloud_to_grid" type="pointcloud_to_grid_node" name="ptg" output="screen" >
+    <!-- center position xy -->
+    <param name="position_x" value="0"/>
+    <param name="position_y" value="0"/>
+    <!-- size of a grid cell -->
+    <!-- <param name="cell_size" value="0.05"/> -->
+    <param name="cell_size" value="0.05"/>
+    <param name="length_x" value="10"/>
+    <param name="length_y" value="10"/>
+    <param name="intensity_factor" value="100"/>
+    <param name="height_factor" value="100"/>
+
+    <param name="point_height_threshold" value="-0.2"/>
+
+    <!--
+    <param name="cloud_in_topic" value="/os_cloud_node/points"/>
+    -->
+    <!-- <param name="cloud_in_topic" value="/left_os1/os1_cloud_node/points"/> -->
+    <param name="cloud_in_topic" value="/velodyne_points"/>
+    <!--
+    <param name="frame_out" value="os1_sensor"/>
+    -->
+    <param name="mapi_topic_name" value="intensity_map_mid"/>
+    <param name="maph_topic_name" value="lidargrid_h"/>
+  </node>
+  <!-- <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconf" output="screen" /> -->
+</launch>
